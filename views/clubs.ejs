@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs</title>
+    <!-- Add any CSS links or stylesheets here -->
+</head>
+<body>
+    <h1>List of Clubs</h1>
+
+    <% if (clubs.length > 0) { %>
+        <ul>
+            <% clubs.forEach(function(club) { %>
+                <li>
+                    <h2><%= club.name %></h2>
+                    <% if (club.image) { %>
+                        <img src="<%= club.image %>" alt="<%= club.name %> Image">
+                    <% } %>
+                    <p>Rating: <%= club.rating %></p>
+                    <p><%= club.description %></p>
+                    <p>Address:</p>
+                    <ul>
+                        <li>Street: <%= club.address.street %></li>
+                        <li>City: <%= club.address.city %></li>
+                        <li>State: <%= club.address.state %></li>
+                        <li>Country: <%= club.address.country %></li>
+                    </ul>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No clubs found.</p>
+    <% } %>
+
+    <!-- Add any JavaScript scripts or links here -->
+</body>
+</html>
